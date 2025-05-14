@@ -1,9 +1,10 @@
-# Fail on any command.
-set -eux pipefail
-#apt cleanup commands
+#!/bin/bash
+echo "Cleaning system..."
 sudo apt update 
 sudo apt upgrade -y
-sudo apt autoclean
-sudo apt autoremove
-#snap cleanup commands
+sudo apt autoclean -y
+sudo apt autoremove -y
+sudo apt clean -y
+rm -rf ~/.cache/thumbnails/*
 sudo snap refresh
+echo "System cleanup complete ✅"
